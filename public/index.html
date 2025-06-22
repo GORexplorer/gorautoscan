@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GORCHAIN Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <h1><i data-feather="activity"></i> GORCHAIN Dashboard</h1>
+    <div class="last-updated">Last Updated: <span id="lastUpdated">N/A</span></div>
+  </header>
+  <main>
+    <div class="grid">
+      <!-- Network -->
+      <div class="card">
+        <h2><i data-feather="globe"></i> Network</h2>
+        <div class="metric"><span class="label">Health</span><span class="value" id="health">N/A</span></div>
+        <div class="metric"><span class="label">Slot</span><span class="value pulse" id="slot">0</span></div>
+        <div class="metric"><span class="label">Block Height</span><span class="value" id="blockHeight">0</span></div>
+        <div class="metric"><span class="label">TPS</span><span class="value pulse" id="tps">0.00</span></div>
+        <div class="metric"><span class="label">Epoch</span><span class="value" id="epoch">N/A</span></div>
+        <div class="metric"><span class="label">Slot Leader</span><span class="value" id="slotLeader">N/A</span></div>
+        <div class="metric"><span class="label">Version</span><span class="value" id="version">N/A</span></div>
+        <div class="metric">
+          <span class="label">Epoch Progress</span>
+          <div class="progress-bar">
+            <div class="progress" id="epochProgressBar" style="width: 0%"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Economics -->
+      <div class="card">
+        <h2><i data-feather="dollar-sign"></i> Economics</h2>
+        <div class="metric"><span class="label">Total Supply</span><span class="value" id="totalSupply">N/A</span></div>
+        <div class="metric"><span class="label">Circulating Supply</span><span class="value" id="circulatingSupply">N/A</span></div>
+        <div class="metric"><span class="label">Inflation Rate</span><span class="value" id="inflationRate">N/A</span></div>
+        <div class="metric"><span class="label">Min Rent Exemption</span><span class="value" id="minRentExemption">N/A</span></div>
+      </div>
+      <!-- Validators -->
+      <div class="card">
+        <h2><i data-feather="server"></i> Validators</h2>
+        <div class="metric"><span class="label">Current Validators</span><span class="value" id="currentValidators">0</span></div>
+        <div class="metric"><span class="label">Delinquent Validators</span><span class="value" id="delinquentValidators">0</span></div>
+        <div class="metric"><span class="label">Active Nodes</span><span class="value" id="activeNodes">0</span></div>
+        <div class="metric"><span class="label">Vote Accounts</span><span class="value" id="voteProgramAccounts">0</span></div>
+        <div class="metric"><span class="label">Leader Schedule</span><span class="value" id="leaderSchedule">N/A</span></div>
+      </div>
+      <!-- Transactions -->
+      <div class="card">
+        <h2><i data-feather="file-text"></i> Transactions</h2>
+        <div class="metric"><span class="label">Total Count</span><span class="value" id="transactionCount">0</span></div>
+        <div class="metric"><span class="label">Base Fee</span><span class="value" id="baseFee">N/A</span></div>
+        <div class="metric"><span class="label">Prioritization Fee</span><span class="value" id="prioritizationFees">0.00</span></div>
+      </div>
+      <!-- Snapshots & Blocks -->
+      <div class="card">
+        <h2><i data-feather="camera"></i> Snapshots & Blocks</h2>
+        <div class="metric"><span class="label">Highest Snapshot Slot</span><span class="value" id="highestSnapshotSlot">0</span></div>
+        <div class="metric"><span class="label">Recent Block Slot</span><span class="value" id="recentBlockSlot">N/A</span></div>
+        <div class="metric"><span class="label">Block Transactions</span><span class="value" id="blockTransactions">0</span></div>
+        <div class="metric"><span class="label">Block Rewards</span><span class="value" id="blockRewards">0</span></div>
+      </div>
+      <!-- Sample Transaction -->
+      <div class="card">
+        <h2><i data-feather="hash"></i> Sample Transaction</h2>
+        <div class="metric"><span class="label">Signature</span><span class="value" id="txSignature">4C3Gy4BmHCmbe37wELpapRKjQJcL72nWEBU9ErEEdo6sGpDQS71NVc6tZ78y37KUsXzqtbduSVbnxzJpH2y4Xpda</span></div>
+        <div class="metric"><span class="label">Status</span><span class="value" id="txStatus">Success</span></div>
+        <div class="metric"><span class="label">Fee</span><span class="value" id="txFee">0.000005 GOR</span></div>
+        <div class="metric"><span class="label">Slot</span><span class="value" id="txSlot">442918</span></div>
+        <div class="metric"><span class="label">Time</span><span class="value" id="txTime">2025-06-21T23:40:45.000Z</span></div>
+        <div class="metric"><span class="label">Compute Units</span><span class="value" id="txComputeUnits">2100</span></div>
+        <div class="metric"><span class="label">Blockhash</span><span class="value" id="txBlockhash">DYxakpJW88gLVzprajdyKddJv9B3pKTsBMyt62jsfdkN</span></div>
+        <div class="metric"><span class="label">Account Keys</span><span class="value" id="txAccountKeys">3Fa3m28byUcaVgF31KcdvQySTFK4VsoTgnNuxrfJAkPE, DDY4NgPcK3sjeA5eJ2aH3NS7qtDhw58K2XxBjNJy4jzM, Vote111111111111111111111111111111111111111</span></div>
+        <div class="metric"><span class="label">Program ID</span><span class="value" id="txProgramId">Vote111111111111111111111111111111111111111</span></div>
+        <div class="metric"><span class="label">Instruction Data</span><span class="value" id="txInstructionData">N/A</span></div>
+      </div>
+    </div>
+    <div class="charts">
+      <div class="chart-container"><canvas id="tpsChart"></canvas></div>
+      <div class="chart-container"><canvas id="slotChart"></canvas></div>
+      <div class="chart-container"><canvas id="blockHeightChart"></canvas></div>
+    </div>
+  </main>
+  <script src="app.js"></script>
+  <script>feather.replace();</script>
+</body>
+</html>

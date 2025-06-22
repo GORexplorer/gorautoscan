@@ -1,0 +1,13 @@
+{
+  "name": "gorex-stats",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@solana/web3.js": "^1.95.3",
+    "express": "^4.21.1",
+    "node-fetch": "^3.3.2"
+  }
+}
