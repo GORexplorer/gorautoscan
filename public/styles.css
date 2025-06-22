@@ -1,4 +1,4 @@
-/* styles.css */
+/* gordata/public/styles.css */
 * {
   margin: 0;
   padding: 0;
@@ -113,7 +113,6 @@ canvas {
   height: 200px !important;
 }
 
-/* Responsive design */
 @media (max-width: 768px) {
   .grid {
     grid-template-columns: 1fr;

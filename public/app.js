@@ -1,4 +1,4 @@
-// app.js
+// gordata/public/app.js
 const charts = {
   tps: null,
   slot: null,
@@ -13,14 +13,11 @@ const dataPoints = {
 
 async function fetchStats() {
   try {
-    const res = await fetch('/api/stats');
+    const res = await fetch('/gordata/api/stats');
     const data = await res.json();
     if (data.error) throw new Error(data.error);
 
-    // Update Header
     document.getElementById('lastUpdated').textContent = new Date(data.lastUpdated).toLocaleString();
-
-    // Update Network
     document.getElementById('health').textContent = data.network.health;
     document.getElementById('slot').textContent = data.network.slot;
     document.getElementById('blockHeight').textContent = data.network.blockHeight;
@@ -29,39 +26,29 @@ async function fetchStats() {
     document.getElementById('slotLeader').textContent = data.network.slotLeader;
     document.getElementById('version').textContent = data.network.version;
     document.getElementById('epochProgressBar').style.width = data.network.epochProgress;
-
-    // Update Economics
     document.getElementById('totalSupply').textContent = data.economics.totalSupply;
     document.getElementById('circulatingSupply').textContent = data.economics.circulatingSupply;
     document.getElementById('inflationRate').textContent = data.economics.inflationRate;
     document.getElementById('minRentExemption').textContent = data.economics.minRentExemption;
-
-    // Update Validators
     document.getElementById('currentValidators').textContent = data.validators.currentValidators;
     document.getElementById('delinquentValidators').textContent = data.validators.delinquentValidators;
     document.getElementById('activeNodes').textContent = data.validators.activeNodes;
     document.getElementById('voteProgramAccounts').textContent = data.validators.voteProgramAccounts;
     document.getElementById('leaderSchedule').textContent = data.validators.leaderSchedule.join(', ') || 'N/A';
-
-    // Update Transactions
     document.getElementById('transactionCount').textContent = data.transactions.transactionCount;
     document.getElementById('baseFee').textContent = data.transactions.baseFee;
     document.getElementById('prioritizationFees').textContent = data.transactions.prioritizationFees.toFixed(6);
-
-    // Update Snapshots & Blocks
     document.getElementById('highestSnapshotSlot').textContent = data.snapshots.highestSnapshotSlot;
     document.getElementById('recentBlockSlot').textContent = data.blocks.recentBlockSlot;
     document.getElementById('blockTransactions').textContent = data.blocks.blockTransactions;
     document.getElementById('blockRewards').textContent = data.blocks.blockRewards;
 
-    // Update Charts
     const now = new Date().toLocaleTimeString();
     dataPoints.tps.push(data.network.transactionsPerSecond);
     dataPoints.slot.push(data.network.slot);
     dataPoints.blockHeight.push(data.network.blockHeight);
     dataPoints.timestamps.push(now);
 
-    // Keep last 30 data points (60 seconds)
     if (dataPoints.tps.length > 30) {
       dataPoints.tps.shift();
       dataPoints.slot.shift();
@@ -69,7 +56,6 @@ async function fetchStats() {
       dataPoints.timestamps.shift();
     }
 
-    // TPS Chart
     if (!charts.tps) {
       charts.tps = new Chart(document.getElementById('tpsChart').getContext('2d'), {
         type: 'line',
@@ -104,7 +90,6 @@ async function fetchStats() {
       charts.tps.update();
     }
 
-    // Slot Chart
     if (!charts.slot) {
       charts.slot = new Chart(document.getElementById('slotChart').getContext('2d'), {
         type: 'line',
@@ -139,7 +124,6 @@ async function fetchStats() {
       charts.slot.update();
     }
 
-    // Block Height Chart
     if (!charts.blockHeight) {
       charts.blockHeight = new Chart(document.getElementById('blockHeightChart').getContext('2d'), {
         type: 'line',
@@ -178,6 +162,5 @@ async function fetchStats() {
   }
 }
 
-// Fetch data every 2 seconds
 fetchStats();
 setInterval(fetchStats, 2000);
