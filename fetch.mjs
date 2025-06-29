@@ -2,7 +2,7 @@
 import fetch from 'node-fetch';
 import { Connection } from '@solana/web3.js';
 
-const RPC = 'https://gorchain.wstf.io';
+const RPC = 'https://rpc.gorbagana.wtf';
 const connection = new Connection(RPC, 'confirmed');
 
 async function sendRpc(method, params = [], retries = 3, delay = 1000) {
