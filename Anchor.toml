@@ -1,0 +1,14 @@
+[workspace]
+members = [
+    "programs/*",
+]
+
+[programs.localnet]
+gor-dex = "YourCustomProgramIdHere" # Temporary, replace after deployment
+
+[registry]
+url = "https://anchor.projectserum.com"
+
+[provider]
+cluster = "custom"
+wallet = "~/.config/solana/id.json" # Adjust path to your wallet
