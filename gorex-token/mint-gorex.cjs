@@ -65,8 +65,8 @@ const {
   );
 
   const tokenMetadata = {
-    name: "GOR Explorer",
-    symbol: "GOREX",
+    name: "JunkNET",
+    symbol: "JUNK",
     uri: "https://sapphire-working-koi-276.mypinata.cloud/ipfs/bafybeic2gjuh5aias7hiduqngldbfdicuw3yafaiktawnsnt6d42guubhq",
     sellerFeeBasisPoints: 0,
     creators: null,

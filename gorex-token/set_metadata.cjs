@@ -10,14 +10,14 @@ const keypair = Keypair.fromSecretKey(Uint8Array.from(secret));
 const connection = new Connection("https://rpc.gorbagana.wtf");
 const metaplex = Metaplex.make(connection).use(keypairIdentity(keypair));
 
-const mintAddress = "BswDEEvvHPE7zzintHEmFsqXwNueiinDRkaGzuijNSkz";
-const uri = "https://red-defensive-guanaco-572.mypinata.cloud/ipfs/bafybeiei2zvcepq5e3dxh5hc3bywo6gjbrszjlrq73mi5u57v2pmzn4zcq";
+const mintAddress = "FPfuQonocUaC8efjsbmtSBkKVMGsD6WmdB7qKDHu2Gye";
+const uri = "https://red-defensive-guanaco-572.mypinata.cloud/ipfs/bafkreihejpl733pjn4dhcgoz37vqjddlkc4xuxv37qjtidgno2e24uiow4";
 
 async function main() {
   const { nft } = await metaplex.nfts().create({
     uri,
-    name: "Gorex Capsules",
-    symbol: "GOREX",
+    name: "JunkNET Oracle",
+    symbol: "JunkNET",
     sellerFeeBasisPoints: 0,
     mintAddress,
   });
