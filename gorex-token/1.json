@@ -1,0 +1,26 @@
+{
+  "name": "GOR Explorer #1",
+  "symbol": "GOREX",
+  "description": "An explorer from the GOREX collection on Gorbagana.",
+  "image": "ipfs://bafybeic2gjuh5aias7hiduqngldbfdicuw3yafaiktawnsnt6d42guubhq",
+  "external_url": "https://gorchain.io/",
+  "seller_fee_basis_points": 0,
+  "attributes": [
+    { "trait_type": "Series", "value": "Genesis" },
+    { "trait_type": "Rank",   "value": "Explorer" },
+    { "trait_type": "Edition","value": "1 of 333" }
+  ],
+  "properties": {
+    "category": "image",
+    "files": [
+      {
+        "uri": "ipfs://bafybeic2gjuh5aias7hiduqngldbfdicuw3yafaiktawnsnt6d42guubhq",
+        "type": "image/png"
+      }
+    ],
+    "creators": [
+      { "address": "8hwjeQHFEfyAk9Z3HHJyPGPPeh7DTapPpc9XjT1dFUda", "share": 100 }
+    ]
+  },
+  "collection": { "name": "GOR Explorer", "family": "GOREX" }
+}

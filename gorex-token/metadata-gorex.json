@@ -1,0 +1,11 @@
+{
+  "name": "GOR Explorer",
+  "symbol": "GOREX",
+  "description": "GOR Explorer on Gorbagana chain",
+  "image": "https://sapphire-working-koi-276.mypinata.cloud/ipfs/bafybeic2gjuh5aias7hiduqngldbfdicuw3yafaiktawnsnt6d42guubhq",
+  "attributes": [],
+  "extensions": {
+    "website": "https://gorchain.io/",
+    "twitter": "@GORexplorer"
+  }
+}

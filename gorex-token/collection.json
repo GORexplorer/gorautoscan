@@ -1,0 +1,25 @@
+{
+  "name": "GOR Explorer · GOREX Collection",
+  "symbol": "GOREX",
+  "description": "Official collection for GOR Explorer ($GOREX) on the Gorbagana chain.",
+  "image": "ipfs://bafybeic2gjuh5aias7hiduqngldbfdicuw3yafaiktawnsnt6d42guubhq",
+  "external_url": "https://gorchain.io/",
+  "seller_fee_basis_points": 0,
+  "attributes": [
+    { "trait_type": "Project", "value": "GOR Explorer" },
+    { "trait_type": "Token",  "value": "$GOREX" }
+  ],
+  "properties": {
+    "category": "image",
+    "files": [
+      {
+        "uri": "ipfs://bafybeic2gjuh5aias7hiduqngldbfdicuw3yafaiktawnsnt6d42guubhq",
+        "type": "image/png"
+      }
+    ],
+    "creators": [
+      { "address": "8hwjeQHFEfyAk9Z3HHJyPGPPeh7DTapPpc9XjT1dFUda", "share": 100 }
+    ]
+  },
+  "collection": { "name": "GOR Explorer", "family": "GOREX" }
+}
